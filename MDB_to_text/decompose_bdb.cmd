@@ -1,0 +1,1 @@
+cscript.exe decompose.vbs BDB_2003.MDB .\SourceBDB\

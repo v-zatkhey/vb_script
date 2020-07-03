@@ -1,0 +1,109 @@
+Operation =1
+Option =0
+Where ="(((dbo_tblСпектр.Результат)<>[Answer]) AND (Not (SpFileList.Answer) Is Null))"
+Begin InputTables
+    Name ="SpFileList"
+    Name ="dbo_tblСпектр"
+    Name ="dbo_Типы_решений_по_спектрам"
+End
+Begin OutputColumns
+    Expression ="dbo_tblСпектр.Результат"
+    Expression ="SpFileList.Answer"
+    Expression ="SpFileList.BlockCode"
+    Expression ="SpFileList.IDNUMBER"
+    Expression ="SpFileList.FileName"
+End
+Begin Joins
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.BlockCode = dbo_tblСпектр.Блок"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.IDNUMBER = dbo_tblСпектр.ID"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.SpectrumType = dbo_tblСпектр.Тип_спектра"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_Типы_решений_по_спектрам"
+    Expression ="SpFileList.Answer = dbo_Типы_решений_по_спектрам.Stamp"
+    Flag =1
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbBoolean "UseTransaction" ="-1"
+dbBoolean "FailOnError" ="0"
+Begin
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Результат"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Answer"
+        dbInteger "ColumnWidth" ="825"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.BlockCode"
+        dbInteger "ColumnWidth" ="1125"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.IDNUMBER"
+        dbInteger "ColumnWidth" ="1200"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.FileName"
+        dbInteger "ColumnWidth" ="1935"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End
+Begin
+    State =0
+    Left =303
+    Top =168
+    Right =1481
+    Bottom =531
+    Left =-1
+    Top =-1
+    Right =1163
+    Bottom =182
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =388
+        Top =8
+        Right =686
+        Bottom =142
+        Top =1
+        Name ="SpFileList"
+        Name =""
+    End
+    Begin
+        Left =38
+        Top =6
+        Right =283
+        Bottom =155
+        Top =1
+        Name ="dbo_tblСпектр"
+        Name =""
+    End
+    Begin
+        Left =726
+        Top =6
+        Right =984
+        Bottom =125
+        Top =2
+        Name ="dbo_Типы_решений_по_спектрам"
+        Name =""
+    End
+End

@@ -1,0 +1,7 @@
+Version =196611
+ColumnsShown =0
+Begin
+    Action ="RunCode"
+    Argument ="ExecSQL (\"exec sendMessage @recipients = 'Volodymyr.Zatkhey@lifechemicals.com',"
+        " \015\011 @subject = 'проверка связи',\015\011 @message = 'Привет!'\") "
+End

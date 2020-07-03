@@ -1,0 +1,6 @@
+module;func;name
+MainModule.bas;Sub;ReadFileFolder
+MainModule.bas;Function;CheckSpectrumFolders
+MainModule.bas;Function;WriteLog
+MainModule.bas;Function;SendMailMessage
+MainModule.bas;Function;ExecSQL

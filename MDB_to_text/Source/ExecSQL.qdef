@@ -1,0 +1,16 @@
+dbMemo "SQL" ="exec sendMessage 'Volodymyr.Zatkhey@lifechemicals.com', 'изменён процент чистоты"
+    " спектра', 'Блок G00571 IDNUMBER F2173-1654; чистота изменилась с 95 на 85\015\012"
+    "Решение по спектрам не менялось!'"
+dbMemo "Connect" ="ODBC;DRIVER=SQL Server;SERVER=SERVER;Trusted_Connection=Yes;APP=Microsoft Office"
+    " 2003;WSID=SERGE710;DATABASE=Chest35;LANGUAGE=русский;Network=DBMSSOCN"
+dbBoolean "ReturnsRecords" ="0"
+dbInteger "ODBCTimeout" ="1000"
+dbBoolean "LogMessages" ="0"
+dbByte "Orientation" ="0"
+Begin
+    Begin
+        dbText "Name" ="ExecSQL.loginame"
+        dbInteger "ColumnWidth" ="1605"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End

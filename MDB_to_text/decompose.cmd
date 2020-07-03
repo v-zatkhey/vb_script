@@ -1,0 +1,1 @@
+cscript decompose.vbs check_spectrum.mdb

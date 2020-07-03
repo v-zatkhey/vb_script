@@ -1,0 +1,167 @@
+Operation =4
+Option =0
+Where ="(((dbo_tblСпектр.Результат)=\"NO\" Or (dbo_tblСпектр.Результат) Is Null) AND ((S"
+    "pFileList.Answer) Is Null) AND ((IsNumeric(Replace(Replace([dbo_tblСпектр_требуе"
+    "мая_чистота]![Требования_по_чистоте],\">\",\"\"),\"%\",\"\")))=True) AND ((Repla"
+    "ce(Replace([dbo_tblСпектр_требуемая_чистота]![Требования_по_чистоте],\">\",\"\")"
+    ",\"%\",\"\"))<=[Percent]))"
+Begin InputTables
+    Name ="SpFileList"
+    Name ="dbo_tblСпектр"
+    Name ="dbo_tblСпектр_требуемая_чистота"
+End
+Begin OutputColumns
+    Name ="dbo_tblСпектр.Результат"
+    Expression ="\"OK\""
+    Name ="dbo_tblСпектр.[Процентное содержание]"
+    Expression ="[Percent]"
+End
+Begin Joins
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.BlockCode = dbo_tblСпектр.Блок"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.IDNUMBER = dbo_tblСпектр.ID"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.SpectrumType = dbo_tblСпектр.Тип_спектра"
+    Flag =1
+    LeftTable ="dbo_tblСпектр"
+    RightTable ="dbo_tblСпектр_требуемая_чистота"
+    Expression ="dbo_tblСпектр.Код = dbo_tblСпектр_требуемая_чистота.Код"
+    Flag =1
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbBoolean "UseTransaction" ="-1"
+dbBoolean "FailOnError" ="0"
+Begin
+    Begin
+        dbText "Name" ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте"
+        dbInteger "ColumnWidth" ="2325"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="PurityDemand"
+        dbInteger "ColumnWidth" ="1410"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.ID"
+        dbInteger "ColumnWidth" ="1830"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Результат"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.[Процентное содержание]"
+        dbInteger "ColumnWidth" ="2385"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Блок"
+        dbInteger "ColumnWidth" ="855"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.ID"
+        dbInteger "ColumnWidth" ="1290"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.SpectrumType"
+        dbInteger "ColumnWidth" ="1440"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.BlockCode"
+        dbInteger "ColumnWidth" ="1125"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.IDNUMBER"
+        dbInteger "ColumnWidth" ="1200"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.FileName"
+        dbInteger "ColumnWidth" ="1935"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Comment"
+        dbInteger "ColumnWidth" ="1020"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Answer"
+        dbInteger "ColumnWidth" ="825"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Percent"
+        dbInteger "ColumnWidth" ="855"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте_2"
+        dbInteger "ColumnWidth" ="3315"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="Выражение1"
+        dbInteger "ColumnWidth" ="3315"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End
+Begin
+    State =0
+    Left =10
+    Top =120
+    Right =1885
+    Bottom =473
+    Left =-1
+    Top =-1
+    Right =1860
+    Bottom =172
+    Left =0
+    Top =0
+    ColumnsShown =579
+    Begin
+        Left =330
+        Top =7
+        Right =628
+        Bottom =141
+        Top =0
+        Name ="SpFileList"
+        Name =""
+    End
+    Begin
+        Left =734
+        Top =2
+        Right =979
+        Bottom =150
+        Top =0
+        Name ="dbo_tblСпектр"
+        Name =""
+    End
+    Begin
+        Left =1062
+        Top =1
+        Right =1319
+        Bottom =120
+        Top =0
+        Name ="dbo_tblСпектр_требуемая_чистота"
+        Name =""
+    End
+End

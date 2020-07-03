@@ -1,0 +1,120 @@
+Operation =1
+Option =0
+Where ="(((dbo_tblСпектр.Результат)=\"OK\") And ((dbo_tblСпектр.[Процентное содержание])"
+    ">[Percent]) And ((Replace(Replace(dbo_tblСпектр_требуемая_чистота!Требования_по_"
+    "чистоте,\">\",\"\"),\"%\",\"\"))>[Percent]) And ((SpFileList.Answer) Is Null) An"
+    "d ((IsNumeric(Replace(Replace(dbo_tblСпектр_требуемая_чистота!Требования_по_чист"
+    "оте,\">\",\"\"),\"%\",\"\")))=True))"
+Begin InputTables
+    Name ="SpFileList"
+    Name ="dbo_tblСпектр"
+    Name ="dbo_tblСпектр_требуемая_чистота"
+End
+Begin OutputColumns
+    Expression ="dbo_tblСпектр.Результат"
+    Expression ="dbo_tblСпектр.[Процентное содержание]"
+    Expression ="SpFileList.BlockCode"
+    Expression ="SpFileList.IDNUMBER"
+    Expression ="SpFileList.Percent"
+    Expression ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте"
+    Alias ="Выражение1"
+    Expression ="Replace(Replace(dbo_tblСпектр_требуемая_чистота!Требования_по_чистоте,\">\",\"\""
+        "),\"%\",\"\")"
+End
+Begin Joins
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.SpectrumType=dbo_tblСпектр.Тип_спектра"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.IDNUMBER=dbo_tblСпектр.ID"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.BlockCode=dbo_tblСпектр.Блок"
+    Flag =1
+    LeftTable ="dbo_tblСпектр"
+    RightTable ="dbo_tblСпектр_требуемая_чистота"
+    Expression ="dbo_tblСпектр.Код=dbo_tblСпектр_требуемая_чистота.Код"
+    Flag =1
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+Begin
+    Begin
+        dbText "Name" ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте"
+        dbInteger "ColumnWidth" ="2325"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Результат"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.[Процентное содержание]"
+        dbInteger "ColumnWidth" ="2385"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.BlockCode"
+        dbInteger "ColumnWidth" ="1125"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.IDNUMBER"
+        dbInteger "ColumnWidth" ="1200"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Percent"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End
+Begin
+    State =0
+    Left =24
+    Top =199
+    Right =1899
+    Bottom =562
+    Left =-1
+    Top =-1
+    Right =1860
+    Bottom =182
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =38
+        Top =6
+        Right =134
+        Bottom =125
+        Top =0
+        Name ="SpFileList"
+        Name =""
+    End
+    Begin
+        Left =246
+        Top =7
+        Right =383
+        Bottom =126
+        Top =0
+        Name ="dbo_tblСпектр"
+        Name =""
+    End
+    Begin
+        Left =511
+        Top =7
+        Right =817
+        Bottom =126
+        Top =0
+        Name ="dbo_tblСпектр_требуемая_чистота"
+        Name =""
+    End
+End

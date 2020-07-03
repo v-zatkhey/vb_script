@@ -1,0 +1,23 @@
+Version =196611
+ColumnsShown =0
+Begin
+    Action ="RunCode"
+    Argument ="WriteLog (\"Начинаю проверку файлов.\") "
+End
+Begin
+    Action ="RunCode"
+    Comment ="G"
+    Argument ="CheckSpectrumFolders (\"G\")"
+End
+Begin
+    Action ="RunCode"
+    Argument ="WriteLog(\"Завершение работы.\")"
+End
+Begin
+    Action ="RunCode"
+    Argument ="WriteLog(\".\")"
+End
+Begin
+    Action ="Quit"
+    Argument ="1"
+End

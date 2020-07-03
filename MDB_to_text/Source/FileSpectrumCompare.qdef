@@ -1,0 +1,156 @@
+Operation =1
+Option =0
+Begin InputTables
+    Name ="dbo_tblСпектр"
+    Name ="SpFileList"
+    Name ="dbo_tblСпектр_требуемая_чистота"
+End
+Begin OutputColumns
+    Expression ="dbo_tblСпектр.ID"
+    Expression ="dbo_tblСпектр.Результат"
+    Expression ="dbo_tblСпектр.[Процентное содержание]"
+    Expression ="dbo_tblСпектр.Блок"
+    Expression ="SpFileList.*"
+    Expression ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте"
+    Alias ="PurityDemand"
+    Expression ="Replace(Replace([dbo_tblСпектр_требуемая_чистота]![Требования_по_чистоте],\">\","
+        "\"\"),\"%\",\"\")"
+    Expression ="SpFileList.Answer"
+End
+Begin Joins
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.BlockCode = dbo_tblСпектр.Блок"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.IDNUMBER = dbo_tblСпектр.ID"
+    Flag =1
+    LeftTable ="dbo_tblСпектр"
+    RightTable ="dbo_tblСпектр_требуемая_чистота"
+    Expression ="dbo_tblСпектр.Код = dbo_tblСпектр_требуемая_чистота.Код"
+    Flag =1
+    LeftTable ="SpFileList"
+    RightTable ="dbo_tblСпектр"
+    Expression ="SpFileList.SpectrumType = dbo_tblСпектр.Тип_спектра"
+    Flag =1
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+Begin
+    Begin
+        dbText "Name" ="dbo_tblСпектр_требуемая_чистота.Требования_по_чистоте"
+        dbInteger "ColumnWidth" ="2325"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="PurityDemand"
+        dbInteger "ColumnWidth" ="1410"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.ID"
+        dbInteger "ColumnWidth" ="1830"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Результат"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.[Процентное содержание]"
+        dbInteger "ColumnWidth" ="2385"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="dbo_tblСпектр.Блок"
+        dbInteger "ColumnWidth" ="855"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.ID"
+        dbInteger "ColumnWidth" ="1290"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.SpectrumType"
+        dbInteger "ColumnWidth" ="1440"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.BlockCode"
+        dbInteger "ColumnWidth" ="1125"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.IDNUMBER"
+        dbInteger "ColumnWidth" ="1200"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.FileName"
+        dbInteger "ColumnWidth" ="1935"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Comment"
+        dbInteger "ColumnWidth" ="1020"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Answer"
+        dbInteger "ColumnWidth" ="825"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="SpFileList.Percent"
+        dbInteger "ColumnWidth" ="855"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End
+Begin
+    State =0
+    Left =74
+    Top =20
+    Right =1910
+    Bottom =280
+    Left =-1
+    Top =-1
+    Right =1817
+    Bottom =182
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =38
+        Top =6
+        Right =283
+        Bottom =155
+        Top =17
+        Name ="dbo_tblСпектр"
+        Name =""
+    End
+    Begin
+        Left =327
+        Top =13
+        Right =625
+        Bottom =147
+        Top =0
+        Name ="SpFileList"
+        Name =""
+    End
+    Begin
+        Left =663
+        Top =6
+        Right =920
+        Bottom =125
+        Top =0
+        Name ="dbo_tblСпектр_требуемая_чистота"
+        Name =""
+    End
+End

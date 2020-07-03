@@ -1,0 +1,67 @@
+Operation =1
+Option =0
+Begin InputTables
+    Name ="dbo_tblТипы_спектров"
+    Name ="TypeDirectory"
+End
+Begin OutputColumns
+    Alias ="Type"
+    Expression ="dbo_tblТипы_спектров.Тип"
+    Expression ="TypeDirectory.DirectoryPath"
+End
+Begin Joins
+    LeftTable ="dbo_tblТипы_спектров"
+    RightTable ="TypeDirectory"
+    Expression ="dbo_tblТипы_спектров.Код = TypeDirectory.TypeID"
+    Flag =1
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+Begin
+    Begin
+        dbText "Name" ="TypeDirectory.DirectoryPath"
+        dbInteger "ColumnWidth" ="2010"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="Type"
+        dbInteger "ColumnWidth" ="600"
+        dbBoolean "ColumnHidden" ="0"
+    End
+End
+Begin
+    State =0
+    Left =352
+    Top =442
+    Right =1069
+    Bottom =767
+    Left =-1
+    Top =-1
+    Right =1817
+    Bottom =144
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =84
+        Top =17
+        Right =180
+        Bottom =136
+        Top =0
+        Name ="dbo_tblТипы_спектров"
+        Name =""
+    End
+    Begin
+        Left =238
+        Top =2
+        Right =334
+        Bottom =106
+        Top =0
+        Name ="TypeDirectory"
+        Name =""
+    End
+End
